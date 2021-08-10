@@ -7,23 +7,18 @@
     android:orientation="vertical"
     android:background="@drawable/bkimg"
     tools:context=".MainActivity">
-    <View
 
+    <View
+        android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
 
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/topGuideLine"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintGuide_percent="0.2" />-->
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/view">
-<!--        app:layout_constraintTop_toBottomOf="@+id/topGuideLine"-->
+        app:layout_constraintTop_toBottomOf="@+id/view1">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,9 +26,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/mainshape"
         android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topGuideLine"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
             android:id="@+id/accountImage"
@@ -54,7 +47,7 @@
             android:paddingTop="8dp"
             android:text="Peter Smith"
             android:textColor="@color/black"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/peopleIcon"
@@ -77,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alberta, Canada"
-            android:textSize="18dp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/Name"
             app:layout_constraintTop_toBottomOf="@+id/Name" />
 
@@ -258,7 +251,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/toolbar"
             android:layout_marginTop="12dp"
-            android:elevation="8dp"
+            android:elevation="4dp"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -295,7 +288,7 @@
                 app:tint="@color/iconcolor" />
 
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/bigimage"
                 android:layout_width="80dp"
                 android:layout_height="160dp"
@@ -304,47 +297,59 @@
                 app:layout_constraintBottom_toTopOf="@+id/textView7"
                 app:layout_constraintStart_toStartOf="@+id/photostext"
                 app:layout_constraintTop_toBottomOf="@+id/photostext"
-                tools:src="@drawable/img2" />
+                android:adjustViewBounds="true"
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                android:src="@drawable/img2" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image2"
                 android:layout_width="72dp"
                 android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="1:1"
                 android:layout_marginStart="12dp"
-                android:scaleType="centerCrop"
                 android:src="@drawable/img"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/circleImageView"
                 app:layout_constraintStart_toEndOf="@+id/bigimage"
                 app:layout_constraintTop_toTopOf="@+id/bigimage" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView6"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
                 android:layout_marginStart="12dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/image3"
+                android:adjustViewBounds="true"
+                app:shapeAppearanceOverlay="@style/circleImageView"
                 app:layout_constraintBottom_toBottomOf="@+id/image2"
                 app:layout_constraintDimensionRatio="2:1"
                 app:layout_constraintStart_toEndOf="@+id/image2"
                 app:layout_constraintTop_toTopOf="@+id/image2" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView5"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="2:1"
                 android:src="@drawable/image4"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/circleImageView"
                 app:layout_constraintTop_toBottomOf="@+id/image2"
                 app:layout_constraintBottom_toBottomOf="@+id/bigimage"
                 app:layout_constraintStart_toStartOf="@+id/image2" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="72dp"
                 android:layout_height="0dp"
                 android:src="@drawable/img3"
                 android:layout_marginStart="12dp"
                 app:layout_constraintDimensionRatio="1:1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/circleImageView"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                 app:layout_constraintEnd_toEndOf="@+id/imageView6"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -373,7 +378,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/toolbar"
             android:layout_marginTop="12dp"
-            android:elevation="8dp"
+            android:elevation="4dp"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.781"
@@ -409,7 +414,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/iconcolor" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/friend1"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -417,11 +422,10 @@
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-
                 app:layout_constraintStart_toStartOf="@+id/friends"
                 app:layout_constraintTop_toBottomOf="@+id/friends"
                 app:shapeAppearanceOverlay="@style/circleImageView"
-                tools:src="@tools:sample/avatars" />
+                android:src="@drawable/profile1" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/friend2"
@@ -435,7 +439,7 @@
                 app:layout_constraintStart_toEndOf="@+id/friend1"
                 app:layout_constraintTop_toTopOf="@+id/friend1"
                 app:shapeAppearanceOverlay="@style/circleImageView"
-                tools:src="@tools:sample/avatars" />
+                android:src="@drawable/profile2" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/friend3"
@@ -449,7 +453,7 @@
                 app:layout_constraintStart_toEndOf="@+id/friend2"
                 app:layout_constraintTop_toTopOf="@+id/friend1"
                 app:shapeAppearanceOverlay="@style/circleImageView"
-                tools:src="@tools:sample/avatars" />
+                android:src="@drawable/profile3" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/friend4"
@@ -458,33 +462,35 @@
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/circleImageView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/friend3"
                 app:layout_constraintTop_toTopOf="@+id/friend1"
-                app:shapeAppearanceOverlay="@style/circleImageView"
-                tools:src="@tools:sample/avatars" />
+
+                android:src="@drawable/profile4" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/ashleytext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Ashley Ren"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/friend2"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/friend2"
                 app:layout_constraintTop_toBottomOf="@+id/friend2" />
 
             <TextView
+                android:id="@+id/cartertext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Carter White"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/friend1"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/friend1"
                 app:layout_constraintTop_toBottomOf="@+id/friend1" />
 
@@ -495,7 +501,7 @@
                 android:text="Maggie Murphy"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/friend4"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/friend4"
                 app:layout_constraintTop_toBottomOf="@+id/friend4" />
 
@@ -506,9 +512,25 @@
                 android:text="Alex Lopez"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/friend3"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/friend3"
                 app:layout_constraintTop_toBottomOf="@+id/friend3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 mutual friends"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@+id/cartertext"
+                app:layout_constraintTop_toBottomOf="@+id/cartertext" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 mutual friends"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@+id/ashleytext"
+                app:layout_constraintTop_toBottomOf="@+id/ashleytext" />
 
 
 
