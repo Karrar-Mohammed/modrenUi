@@ -3,4 +3,34 @@
     <string name="_1">1</string>
     <string name="_3">3</string>
     <string name="_2">2</string>
+    <string name="peter_smith">Peter Smith</string>
+    <string name="alberta_canada">Alberta, Canada</string>
+    <string name="call">call</string>
+    <string name="message">message</string>
+    <string name="more">more</string>
+    <string name="timeline">Timeline</string>
+    <string name="about">About</string>
+    <string name="friends">Friends</string>
+    <string name="photos">Photos</string>
+    <string name="write_something_to_peter">write something to peter...</string>
+    <string name="plusbutton">+</string>
+    <string name="_780">780</string>
+    <string name="see_more">see more</string>
+    <string name="_530">530</string>
+    <string name="ashley_ren">Ashley Ren</string>
+    <string name="carter_white">Carter White</string>
+    <string name="maggie_murphy">Maggie Murphy</string>
+    <string name="alex_lopez">Alex Lopez</string>
+    <string name="_12_mutual_friends">12 mutual friends</string>
+    <string name="_3_mutual_friends">3 mutual friends</string>
+    <string name="accountimage">accountImage</string>
+    <string name="personicon">personicon</string>
+    <string name="callbutton">callbutton</string>
+    <string name="messagebutton">messagebutton</string>
+    <string name="morebutton">moreButton</string>
+    <string name="moreicon">moreIcon</string>
+    <string name="senderimage">senderImage</string>
+    <string name="photosicon">photosIcon</string>
+    <string name="friendsicon">friendsIcon</string>
+
 </resources>

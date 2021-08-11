@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,18 +8,18 @@
     android:background="@drawable/bkimg"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
-
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/view1">
-
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,12 +32,13 @@
             android:id="@+id/accountImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:background="@drawable/circle"
             android:src="@drawable/accountimage"
+            android:layout_marginStart="24dp"
             app:layout_constraintBaseline_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/accountimage" />
 
         <TextView
             android:id="@+id/Name"
@@ -45,9 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:paddingTop="8dp"
-            android:text="Peter Smith"
+            android:text="@string/peter_smith"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="@dimen/textsizebig"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/peopleIcon"
@@ -58,19 +59,20 @@
             android:id="@+id/peopleIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:paddingStart="4dp"
+            android:layout_marginBottom="@dimen/marginsmall"
+            android:paddingStart="@dimen/paddingsmall"
             android:src="@drawable/ic_baseline_people_24"
             app:layout_constraintBottom_toBottomOf="@+id/Name"
             app:layout_constraintStart_toEndOf="@+id/Name"
-            app:tint="@color/iconcolor" />
+            app:tint="@color/iconcolor"
+            android:contentDescription="@string/personicon" />
 
         <TextView
             android:id="@+id/miniText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alberta, Canada"
-            android:textSize="18sp"
+            android:text="@string/alberta_canada"
+            android:textSize="@dimen/textsizenormall"
             app:layout_constraintStart_toStartOf="@+id/Name"
             app:layout_constraintTop_toBottomOf="@+id/Name" />
 
@@ -78,8 +80,8 @@
             android:id="@+id/callText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="call"
+            android:layout_marginTop="@dimen/marginmedium"
+            android:text="@string/call"
             app:layout_constraintEnd_toEndOf="@+id/callicon"
             app:layout_constraintStart_toStartOf="@+id/callicon"
             app:layout_constraintTop_toBottomOf="@+id/callicon" />
@@ -88,8 +90,8 @@
             android:id="@+id/messageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="message"
+            android:layout_marginTop="@dimen/marginmedium"
+            android:text="@string/message"
             app:layout_constraintEnd_toEndOf="@+id/messageIcon"
             app:layout_constraintStart_toStartOf="@+id/messageIcon"
             app:layout_constraintTop_toBottomOf="@+id/messageIcon" />
@@ -98,8 +100,8 @@
             android:id="@+id/moreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="more"
+            android:layout_marginTop="@dimen/marginmedium"
+            android:text="@string/more"
             app:layout_constraintEnd_toEndOf="@+id/moreIcon"
             app:layout_constraintStart_toStartOf="@+id/moreIcon"
             app:layout_constraintTop_toBottomOf="@+id/moreIcon" />
@@ -109,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:background="#bdbcbd"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/marginbig"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/callText" />
@@ -120,48 +122,50 @@
             android:layout_height="@dimen/iconDimen"
             android:layout_marginStart="4dp"
             android:background="@drawable/circle"
-            android:elevation="4dp"
-            android:onClick="click"
-            android:padding="6dp"
+            android:elevation="@dimen/elevationsmall"
+            android:padding="@dimen/paddingmedium"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_baseline_call_24"
             app:layout_constraintStart_toStartOf="@+id/miniText"
             app:layout_constraintTop_toBottomOf="@+id/accountImage"
-            app:tint="@color/iconcolor" />
+            app:tint="@color/iconcolor"
+            android:contentDescription="@string/callbutton" />
 
         <ImageButton
             android:id="@+id/messageIcon"
             android:layout_width="@dimen/iconDimen"
             android:layout_height="@dimen/iconDimen"
             android:background="@drawable/circle"
-            android:elevation="4dp"
-            android:padding="6dp"
+            android:elevation="@dimen/elevationsmall"
+            android:padding="@dimen/paddingmedium"
             android:src="@drawable/ic_facebook_messenger_lite"
             app:layout_constraintEnd_toStartOf="@+id/moreIcon"
             app:layout_constraintStart_toEndOf="@+id/callicon"
-            app:layout_constraintTop_toTopOf="@+id/callicon" />
+            app:layout_constraintTop_toTopOf="@+id/callicon"
+            android:contentDescription="@string/messagebutton" />
 
         <ImageButton
             android:id="@+id/moreIcon"
             android:layout_width="@dimen/iconDimen"
             android:layout_height="@dimen/iconDimen"
             android:background="@drawable/circle"
-            android:elevation="4dp"
+            android:elevation="@dimen/elevationsmall"
             android:src="@drawable/ic_baseline_more_horiz_24"
             app:layout_constraintEnd_toEndOf="@id/Name"
             app:layout_constraintTop_toTopOf="@+id/callicon"
-            app:tint="@color/iconcolor" />
+            app:tint="@color/iconcolor"
+            android:contentDescription="@string/morebutton" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/marginbig"
             android:background="@drawable/toolbar"
-            android:elevation="4dp"
+            android:elevation="@dimen/elevationsmall"
             android:orientation="horizontal"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="12dp"
+            android:paddingHorizontal="@dimen/horipadding"
+            android:paddingVertical="@dimen/vertipadding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view">
@@ -172,39 +176,40 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
-                android:drawableTop="@drawable/ic_baseline_timeline_24"
-                android:text="Timeline" />
+                android:text="@string/timeline"
+                app:drawableTopCompat="@drawable/ic_baseline_timeline_24" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
-                android:drawableTop="@drawable/ic_baseline_person_24"
-                android:text="About" />
+                android:text="@string/about"
+                app:drawableTopCompat="@drawable/ic_baseline_person_24" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
-                android:drawableTop="@drawable/ic_baseline_friends_24"
-                android:text="Friends" />
+                android:text="@string/friends"
+                app:drawableTopCompat="@drawable/ic_baseline_friends_24" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
-                android:drawableTop="@drawable/ic_outline_photo_24"
-                android:text="Photos" />
+                android:text="@string/photos"
+                app:drawableTopCompat="@drawable/ic_outline_photo_24" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="24dp"
-                android:src="@drawable/ic_baseline_more_vert_24" />
+                android:src="@drawable/ic_baseline_more_vert_24"
+                android:contentDescription="@string/moreicon" />
 
 
         </LinearLayout>
@@ -216,7 +221,8 @@
             android:layout_marginTop="16dp"
             android:src="@drawable/smallimage2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:contentDescription="@string/senderimage" />
 
         <EditText
             android:id="@+id/editText"
@@ -224,9 +230,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:background="@drawable/edittext"
-            android:hint="write something to peter..."
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
+            android:hint="@string/write_something_to_peter"
+            android:paddingHorizontal="@dimen/bighoripadding"
+            android:paddingVertical="@dimen/vertipadding"
             app:layout_constraintBottom_toBottomOf="@+id/imageView4"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintEnd_toStartOf="@+id/plusbutton"
@@ -237,11 +243,10 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/circle"
-            android:text="+"
+            android:text="@string/plusbutton"
             android:textColor="@color/iconcolor"
             app:layout_constraintBottom_toBottomOf="@+id/editText"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toEndOf="@+id/editText"
             app:layout_constraintTop_toTopOf="@+id/editText" />
 
@@ -262,9 +267,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="Photos"
+                android:text="@string/photos"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="@dimen/textsizenormall"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -274,7 +279,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
-                android:text="780"
+                android:text="@string/_780"
                 app:layout_constraintBottom_toBottomOf="@+id/photostext"
                 app:layout_constraintStart_toEndOf="@+id/photostext"
                 app:layout_constraintTop_toTopOf="@+id/photostext" />
@@ -285,7 +290,8 @@
                 android:src="@drawable/ic_outline_photo_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/iconcolor" />
+                app:tint="@color/iconcolor"
+                android:contentDescription="@string/photosicon" />
 
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -360,16 +366,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:drawableBottom="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:text="see more"
+                android:text="@string/see_more"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-
-
-
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:drawableBottomCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -390,9 +391,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="Friends"
+                android:text="@string/friends"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="@dimen/textsizenormall"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -402,7 +403,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="530"
+                android:text="@string/_530"
                 app:layout_constraintBaseline_toBaselineOf="@+id/friends"
                 app:layout_constraintStart_toEndOf="@+id/friends" />
 
@@ -412,7 +413,8 @@
                 android:src="@drawable/ic_baseline_friends_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/iconcolor" />
+                app:tint="@color/iconcolor"
+                android:contentDescription="@string/friendsicon" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/friend1"
@@ -475,7 +477,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Ashley Ren"
+                android:text="@string/ashley_ren"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="12sp"
@@ -487,7 +489,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Carter White"
+                android:text="@string/carter_white"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="12sp"
@@ -498,7 +500,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Maggie Murphy"
+                android:text="@string/maggie_murphy"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="12sp"
@@ -509,7 +511,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Alex Lopez"
+                android:text="@string/alex_lopez"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="12sp"
@@ -519,16 +521,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12 mutual friends"
-                android:textSize="10dp"
+                android:text="@string/_12_mutual_friends"
+                android:textSize="@dimen/textsizesmall"
                 app:layout_constraintStart_toStartOf="@+id/cartertext"
                 app:layout_constraintTop_toBottomOf="@+id/cartertext" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3 mutual friends"
-                android:textSize="10dp"
+                android:text="@string/_3_mutual_friends"
+                android:textSize="@dimen/textsizesmall"
                 app:layout_constraintStart_toStartOf="@+id/ashleytext"
                 app:layout_constraintTop_toBottomOf="@+id/ashleytext" />
 
@@ -540,4 +542,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,16 @@
 <resources>
     <dimen name="cornerRadius">36dp</dimen>
     <dimen name="iconDimen">36dp</dimen>
+    <dimen name="paddingsmall">4dp</dimen>
+    <dimen name="marginsmall">2dp</dimen>
+    <dimen name="textsizenormall">18sp</dimen>
+    <dimen name="marginmedium">8dp</dimen>
+    <dimen name="marginbig">24dp</dimen>
+    <dimen name="elevationsmall">4dp</dimen>
+    <dimen name="paddingmedium">6dp</dimen>
+    <dimen name="horipadding">10dp</dimen>
+    <dimen name="vertipadding">8dp</dimen>
+    <dimen name="bighoripadding">16dp</dimen>
+    <dimen name="textsizebig">30sp</dimen>
+    <dimen name="textsizesmall">10sp</dimen>
 </resources>
